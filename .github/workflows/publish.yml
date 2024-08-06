@@ -44,6 +44,6 @@ jobs:
           accountId: 847223cae45cdf180c020131c91c9d65
           projectName: nuxt-test-3
           directory: dist
-          branch: main
+          branch: production
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
           wranglerVersion: '3'
