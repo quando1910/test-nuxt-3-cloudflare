@@ -1,5 +1,6 @@
 on:
   push:
+    # Trigger on push to main branch
     branches:
       - main
 
@@ -10,6 +11,7 @@ jobs:
       contents: read
       deployments: write
     name: Cloudflare Pages Deployment
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,6 +25,13 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install
+
+      - name: Build env file
+        run: |
+          touch .env
+          echo SHOPWARE_ENDPOINT="${{ vars.SHOPWARE_ENDPOINT }} >> .env
+          echo SHOPWARE_ACCESS_TOKEN=${{ vars.SHOPWARE_ACCESS_TOKEN }} >> .env
+          cat .env
 
       - name: Build code
         run: |
