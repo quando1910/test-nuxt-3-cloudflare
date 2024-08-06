@@ -17,9 +17,12 @@ jobs:
           version: 8
           run_install: false
 
-      - name: Build code
+      - name: Install dependencies
         run: |
           pnpm install
+
+      - name: Build code
+        run: |
           npx nuxi build --preset=cloudflare_pages
 
       - name: Publish to Cloudflare Pages
