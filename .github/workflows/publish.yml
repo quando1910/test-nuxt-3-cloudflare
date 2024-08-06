@@ -1,4 +1,7 @@
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
@@ -32,8 +35,5 @@ jobs:
           accountId: 847223cae45cdf180c020131c91c9d65
           projectName: nuxt-test-3
           directory: dist
-          # Optional: Switch what branch you are publishing to.
-          # By default this will be the branch which triggered this workflow
-          branch: main
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
           wranglerVersion: '3'
