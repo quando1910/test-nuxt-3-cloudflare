@@ -29,7 +29,7 @@ jobs:
       - name: Build env file
         run: |
           touch .env
-          echo SHOPWARE_ENDPOINT="${{ vars.SHOPWARE_ENDPOINT }} >> .env
+          echo SHOPWARE_ENDPOINT=${{ vars.SHOPWARE_ENDPOINT }} >> .env
           echo SHOPWARE_ACCESS_TOKEN=${{ vars.SHOPWARE_ACCESS_TOKEN }} >> .env
           cat .env
 
